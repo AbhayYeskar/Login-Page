@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:login_page/provider/loginprovider.dart';
 import 'package:login_page/securityscreen.dart';
+import 'package:provider/provider.dart';
 
-class Loginscreen extends StatelessWidget {
+class Loginscreen extends StatefulWidget {
   const Loginscreen({super.key});
 
   @override
+  State<Loginscreen> createState() => _LoginscreenState();
+}
+
+class _LoginscreenState extends State<Loginscreen> {
+  @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<LoginProvider>(context);
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Align(
@@ -36,7 +45,9 @@ class Loginscreen extends StatelessWidget {
                     ),
                   ),
                 ),
+
                 SizedBox(height: 35),
+
                 TextField(
                   decoration: InputDecoration(
                     labelText: 'Email',
@@ -45,6 +56,7 @@ class Loginscreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
+                  onChanged: provider.setEmail,
                 ),
                 SizedBox(height: 20),
                 TextField(
@@ -55,7 +67,9 @@ class Loginscreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
+                  onChanged: provider.setPassword,
                 ),
+
                 Padding(
                   padding: const EdgeInsets.only(top: 20, left: 250),
                   child: Text(
@@ -104,7 +118,9 @@ class Loginscreen extends StatelessWidget {
                     ),
                   ),
                 ),
+
                 SizedBox(height: 20),
+
                 ElevatedButton.icon(
                   onPressed: () {},
                   icon: Image.asset(
@@ -112,6 +128,7 @@ class Loginscreen extends StatelessWidget {
                     height: 23,
                     width: 23,
                   ),
+
                   label: Text(
                     'Continue with Google',
                     style: TextStyle(
