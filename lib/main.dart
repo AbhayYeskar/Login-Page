@@ -12,6 +12,7 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (_) => LoginProvider()),
         ChangeNotifierProvider(create: (_) => SecurityProvider()),
+        ChangeNotifierProvider(create: (_) => Dashboardprovider()),
       ],
 
       child: const MyApp(),
