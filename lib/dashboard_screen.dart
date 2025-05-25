@@ -29,6 +29,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               ElevatedButton(
+                 style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.all(8),
+                  backgroundColor: Colors.lightBlue, // Background color
+                ),
                 onPressed: () {
                   Navigator.push(
                     context,
