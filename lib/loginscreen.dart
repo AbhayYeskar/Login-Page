@@ -95,7 +95,8 @@ class _LoginscreenState extends State<Loginscreen> {
                       borderRadius: BorderRadius.circular(23),
                     ),
                   ),
-                  onPressed: () {
+                  onPressed:  provider.isFormValid
+                          ? () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Securityscreen()),
