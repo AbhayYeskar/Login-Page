@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
-class LoginProvider extends ChangeNotifier {
+class LoginProvider with ChangeNotifier {
   String _email = '';
   String _password = '';
-  bool _isLoading = false;
 
   String get email => _email;
   String get password => _password;
-  bool get isLoading => _isLoading;
 
   void setEmail(String value) {
     _email = value;
@@ -19,17 +17,6 @@ class LoginProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> login(BuildContext context) async {
-    _isLoading = true;
-    notifyListeners();
-
-    // Simulate a network call
-    await Future.delayed(Duration(seconds: 2));
-
-    _isLoading = false;
-    notifyListeners();
-
-    // // Navigate to the security screen upon successful login
-    // Navigator.pushNamed(context, '/security');
-  }
+  bool get isFormValid =>
+      _email.trim().isNotEmpty && _password.trim().isNotEmpty;
 }
